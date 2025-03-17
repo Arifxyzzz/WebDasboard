@@ -23,7 +23,10 @@
             align-items: center;
             justify-content: space-between;
             position: relative;
-            background: transparent;
+            background-image: url('aset/bg.png'); /* Menambahkan gambar latar belakang */
+            background-size: cover; /* Agar gambar memenuhi seluruh halaman */
+            background-position: center; /* Posisi gambar di tengah halaman */
+            background-repeat: no-repeat;
             
         }
 
@@ -46,6 +49,17 @@
             padding: 20px;
             width: 100%;
             margin: 10px;
+            opacity: 0;
+            transform: translateY(-50px); /* Mulai dari posisi di atas */
+            animation: slideDown 0.5s ease-in-out forwards;
+        }
+
+        /* Keyframe untuk animasi dari atas ke bawah */
+        @keyframes slideDown {
+            to {
+                opacity: 1;
+                transform: translateY(0); /* Posisi akhir, elemen berada di tempat semula */
+            }
         }
 
         .navbar-group {
@@ -146,6 +160,26 @@
             font-size: 24px;
             font-weight: bold;
             color: #ff466e;
+            opacity: 0;
+            animation: fadeInText 0.5s ease-in-out forwards;
+        }
+
+        /* Animasi untuk teks */
+        @keyframes fadeInText {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                        opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Menambahkan efek animasi per huruf dengan delay */
+        .animated-text {
+            animation: fadeInText 2s ease-in-out forwards;
+            animation-delay: 0s; /* Menambahkan sedikit delay */
         }
 
         @media (max-width: 768px) {
@@ -315,7 +349,7 @@
             try {
                 const response = await fetch(`https://api.mcsrvstat.us/2/${MINECRAFT_SERVER_IP}`);
                 const data = await response.json();
-                document.getElementById("playerStats").innerText = data.players ? `${data.players.online} / 200` : "N/A";
+                document.getElementById("playerStats").innerText = data.players ? `${data.players.online} Player` : "N/A";
             } catch (error) {
                 document.getElementById("playerStats").innerText = "Error";
                 console.error("Error fetching Minecraft data:", error);
