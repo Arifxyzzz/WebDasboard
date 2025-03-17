@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="aset/logocornez.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CornezSMP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            background: transparent;
+            
+        }
+
+        
+
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            padding: 20px;
+            width: 100%;
+            margin: 10px;
+        }
+
+        .navbar-group {
+            display: flex;
+            gap: 150px;
+        }
+
+        .logo-navbar img {
+            width: 200px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .navbar a:hover {
+            color: #ff0055;
+        }
+
+        .logo {
+            margin-top: 20px;
+        }
+
+        .logo img {
+            width: 800px;
+            opacity: 0;
+            transform: scale(0.8);
+            animation: fadeIn 0.5s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+              opacity: 1;
+              transform: scale(1);
+            }
+        }
+
+        .hide {
+            opacity: 0;
+            transform: scale(0.5);
+        }
+
+        .title {
+            font-size: 48px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            background: linear-gradient(90deg, #d6d4d5, #e52e71);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stats-container {
+            display: flex;
+            gap: 80px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 50px;
+        }
+
+        .stats-card {
+            padding: 20px;
+            border-radius: 15px;
+            width: 300px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.3s;
+            margin: 40px;
+            gap: 10px;
+        }
+
+        .stats-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .stats-card img {
+            width: 60px;
+            height: 60px;
+        }
+
+        .stats-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .stats-card p {
+            font-size: 18px;
+            margin: 1px 0;
+        }
+
+        .stats-card span {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff466e;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 20px;
+                width: 110%;
+                margin: 10px;
+            }
+
+            .navbar-group {
+                display: flex;
+                gap: 150px;
+            }
+            
+            .logo-navbar img {
+                width: 0px;
+            }
+
+            .navbar a {
+                color: white;
+                text-decoration: none;
+                font-size: 0px;
+                font-weight: bold;
+                transition: color 0.3s;
+            }
+
+            .stats-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .stats-card {
+                width: 90%;
+                justify-content: center;
+            }
+
+            .logo {
+                margin-top: 1px;
+            }
+
+            .logo img {
+                width: 350px;
+            }
+
+            .description {
+                font-size: 16px;
+                max-width: 90%;
+            }
+
+            .stats-container {
+                display: flex;
+                gap: 8px;
+                flex-wrap: wrap;
+                justify-content: center;
+                margin-bottom: 5px;
+            }
+
+            .stats-card {
+                padding: 20px;
+                border-radius: 15px;
+                width: 300px;
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                transition: transform 0.3s;
+                margin: 1px;
+                gap: 1px;
+            }
+
+            .stats-card:hover {
+                transform: translateY(-10px);
+            }
+
+            .stats-card img {
+                width: 0px;
+                height: 0px;
+            }
+
+            .stats-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .stats-card p {
+                font-size: 12px;
+                margin: 1px;
+            }
+
+            .stats-card span {
+                font-size: 12px;
+                font-weight: bold;
+                color: #ff0040;
+            }
+        }
+
+        
+    </style>
+</head>
+<body>
+    <video autoplay muted loop>
+        <source src="aset/backgroundd.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="navbar">
+        <div class="navbar-group">
+          <a href="index.html">HOME</a>
+          <a href="about.html">ABOUT</a>
+          <a href="help.html">HELP</a>
+        </div>
+        <div class="logo-navbar">
+            <img src="aset/logocornez.png" alt="CornezSMP Logo">
+        </div>
+        <div class="navbar-group">
+          <a href="https://info.cornezz.my.id/" target="_blank">RANK</a>
+          <a href="https://cornezz.my.id/whatsapp" target="_blank">WHATSAPP</a>
+          <a href="https://minecraft-mp.com/server/320171/vote/" target="_blank">VOTE</a>
+        </div>
+    </div>
+    
+    
+    
+    <div class="logo">
+        <img src="aset/title.png" alt="CornezSMP Logo">
+    </div>
+    
+    
+    <div class="stats-container">
+        <div class="stats-card" onclick="copyToClipboard('cornez.xyz')">
+          <img src="aset/ip.png" alt="Server Icon">
+          <div class="stats-content">
+            <p>Server Address</p>
+            <span>CORNEZ.XYZ</span>
+          </div>
+        </div>
+        <div class="stats-card" onclick="copyToClipboard('cornez.xyz')">
+          <img src="aset/player.png" alt="Server Icon">
+          <div class="stats-content">
+            <p>Players Online</p>
+            <span id="playerStats">Loading...</span>
+          </div>
+        </div>
+        <div class="stats-card" onclick="window.open('https://discord.gg/csr25MQ2b8', '_blank')">
+          <img src="aset/discord.png" alt="Server Icon">
+          <div class="stats-content">
+            <p>Discord</p>
+            <span id="discordStats">Loading...</span>
+          </div>
+        </div>
+        <div class="stats-card" onclick="window.open('https://www.tiktok.com/@cornezsmp', '_blank')">
+          <img src="aset/tiktok.png" alt="Server Icon">
+          <div class="stats-content">
+            <p>TikTok</p>
+            <span>CORNEZ SMP</span>
+          </div>
+        </div>
+    </div>
+
+    <script>
+        const DISCORD_SERVER_ID = "1015158739822710785";
+        const MINECRAFT_SERVER_IP = "cornez.xyz";
+
+        async function fetchMinecraftStats() {
+            try {
+                const response = await fetch(`https://api.mcsrvstat.us/2/${MINECRAFT_SERVER_IP}`);
+                const data = await response.json();
+                document.getElementById("playerStats").innerText = data.players ? `${data.players.online} / 200` : "N/A";
+            } catch (error) {
+                document.getElementById("playerStats").innerText = "Error";
+                console.error("Error fetching Minecraft data:", error);
+            }
+        }
+
+        async function fetchDiscordStats() {
+            try {
+               const response = await fetch(`https://discord.com/api/v9/guilds/${DISCORD_SERVER_ID}/widget.json`);
+               const data = await response.json();
+               document.getElementById("discordStats").innerText = data.presence_count ? `${data.presence_count} Online` : "N/A";
+            } catch (error) {
+            document.getElementById("discordStats").innerText = "Error";
+            console.error("Error fetching Discord data:", error);
+            }
+        }
+
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+              alert("Copied: " + text);
+            });
+        }
+
+       fetchMinecraftStats();
+       fetchDiscordStats();
+       setInterval(fetchMinecraftStats, 30000);
+       setInterval(fetchDiscordStats, 30000);
+    </script>
+    
+</body>
+</html>
